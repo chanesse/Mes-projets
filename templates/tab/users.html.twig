@@ -1,0 +1,31 @@
+{% extends 'template.html.twig' %}
+
+
+
+
+{% block PageTitle %}
+  Users
+  <div class="alert alert-warning">
+     <a href="{{ path('app_tab') }}">Lien vers une route Symfony</a>
+  
+  </div>
+
+{% endblock %}
+
+
+{% block body %}
+ <table class="table">
+   <tr calss="table-active">
+      <td>Firstname</td>
+      <td>Name</td>
+      <td>Age</td>
+   </tr>
+    {% for user in users %}
+    <tr calss="table-{% if loop.index is odd %}danger{% else %}warning{% endif %}">
+      <td>{{ user.firstname }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+    </tr>
+    {% endfor %}
+ </table>
+{% endblock %}
